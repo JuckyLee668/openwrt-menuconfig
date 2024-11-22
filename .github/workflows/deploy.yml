@@ -1,0 +1,23 @@
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+     
+      - name: Push
+        env: # PUSH 权限要求
+          GITHUB_TOKEN: ${{ secrets.PUSH_KEY }}
+        run: |
+          git config --global user.email "2794920709@qq.com"
+          git config --global user.name "JuckyLee668"
+          git clone https://JuckyLee668:${{ secrets.PUSH_KEY }}@github.com/JuckyLee668/vv.git
+          cd vv/html/openWrt
+          cp -r ./*  ./*
+          git update openwrtCofigTool
+          git commit -m "github action auto push"
+          git push origin main
+        
