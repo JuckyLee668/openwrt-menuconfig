@@ -17,7 +17,7 @@ jobs:
           cd ..
           git clone https://JuckyLee668:${{ secrets.PUSH_KEY }}@github.com/JuckyLee668/vv.git
           cp -r openwrt-menuconfig/*  vv/html/openWrt/
-          git update openwrtCofigTool
+          git add openwrtCofigTool
           git commit -m "github action auto push"
           git push origin main
         
